@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toolkit | Susmita Kirttonia</title>
+    <meta name="description" content="Susmita Kirttonia — AI Engineer exploring artificial intelligence, intelligent technologies, and emerging digital systems.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/shared.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="assets/js/tailwind-config.js"></script>
+</head>
+<body class="living-bg text-gray-200 antialiased selection:bg-fuchsia-500 selection:text-white min-h-screen">
+
+    <canvas id="neural-canvas"></canvas>
+
+    <div class="content-layer">
+        <!-- ============ NAV (shared across all pages — update active link) ============ -->
+        <nav class="fixed top-0 left-0 right-0 z-50 glass-nav transition-all duration-300">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-20">
+                    <a href="index.html" class="flex items-center gap-3 group">
+                        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-purple-900 to-fuchsia-600 flex items-center justify-center border border-fuchsia-400/30 group-hover:shadow-[0_0_15px_rgba(217,70,239,0.5)] transition-all">
+                            <span class="font-black text-white text-lg">SK</span>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="font-extrabold tracking-wider text-white text-sm sm:text-base group-hover:text-fuchsia-300 transition-colors">SUSMITA KIRTTONIA</span>
+                            <span class="text-[10px] font-semibold text-fuchsia-400 tracking-widest uppercase">AI ENGINEER</span>
+                        </div>
+                    </a>
+
+                    <div class="hidden lg:flex items-center space-x-1 xl:space-x-2 text-xs font-semibold tracking-wider">
+                        <a href="index.html" class="px-3 py-2 rounded-lg text-gray-300 hover:text-white hover:bg-fuchsia-500/10 transition">HOME</a>
+                        <a href="about.html" class="px-3 py-2 rounded-lg text-gray-300 hover:text-white hover:bg-fuchsia-500/10 transition">ABOUT</a>
+                        <a href="expertise.html" class="px-3 py-2 rounded-lg text-gray-300 hover:text-white hover:bg-fuchsia-500/10 transition">AI EXPERTISE</a>
+                        <a href="toolkit.html" class="nav-link-active px-3 py-2 rounded-lg text-gray-300 hover:text-white hover:bg-fuchsia-500/10 transition">TOOLKIT</a>
+                        <a href="journey.html" class="px-3 py-2 rounded-lg text-gray-300 hover:text-white hover:bg-fuchsia-500/10 transition">JOURNEY</a>
+                        <a href="projects.html" class="px-3 py-2 rounded-lg text-gray-300 hover:text-white hover:bg-fuchsia-500/10 transition">PROJECTS</a>
+                        <a href="lab.html" class="px-3 py-2 rounded-lg text-gray-300 hover:text-white hover:bg-fuchsia-500/10 transition">AI LAB</a>
+                        <a href="education.html" class="px-3 py-2 rounded-lg text-gray-300 hover:text-white hover:bg-fuchsia-500/10 transition">EDUCATION</a>
+                        <a href="contact.html" class="px-3 py-2 rounded-lg text-gray-300 hover:text-white hover:bg-fuchsia-500/10 transition">CONTACT</a>
+                    </div>
+
+                    <div class="hidden sm:block">
+                        <a href="contact.html" class="px-5 py-2.5 rounded-full text-xs font-bold tracking-wider text-white bg-gradient-to-r from-purple-600 via-fuchsia-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 shadow-[0_0_20px_rgba(168,85,247,0.3)] hover:shadow-[0_0_25px_rgba(217,70,239,0.6)] transition-all duration-300 flex items-center gap-2 border border-fuchsia-400/30">
+                            <span>CONNECT</span>
+                            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </a>
+                    </div>
+
+                    <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-lg text-gray-300 hover:text-white hover:bg-purple-900/40 focus:outline-none" aria-label="Toggle Navigation">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div id="mobile-menu" class="hidden lg:hidden glass-panel border-t border-fuchsia-500/20 px-4 pt-3 pb-6 space-y-2 text-sm font-semibold">
+                <a href="index.html" class="mobile-nav-link block px-3 py-2 rounded-lg hover:bg-fuchsia-500/10 text-gray-200">HOME</a>
+                <a href="about.html" class="mobile-nav-link block px-3 py-2 rounded-lg hover:bg-fuchsia-500/10 text-gray-200">ABOUT</a>
+                <a href="expertise.html" class="mobile-nav-link block px-3 py-2 rounded-lg hover:bg-fuchsia-500/10 text-gray-200">AI EXPERTISE</a>
+                <a href="toolkit.html" class="mobile-nav-link block px-3 py-2 rounded-lg hover:bg-fuchsia-500/10 text-gray-200">TOOLKIT</a>
+                <a href="journey.html" class="mobile-nav-link block px-3 py-2 rounded-lg hover:bg-fuchsia-500/10 text-gray-200">JOURNEY</a>
+                <a href="projects.html" class="mobile-nav-link block px-3 py-2 rounded-lg hover:bg-fuchsia-500/10 text-gray-200">PROJECTS</a>
+                <a href="lab.html" class="mobile-nav-link block px-3 py-2 rounded-lg hover:bg-fuchsia-500/10 text-gray-200">AI LAB</a>
+                <a href="education.html" class="mobile-nav-link block px-3 py-2 rounded-lg hover:bg-fuchsia-500/10 text-gray-200">EDUCATION</a>
+                <a href="contact.html" class="mobile-nav-link block px-3 py-2 rounded-lg hover:bg-fuchsia-500/10 text-gray-200">CONTACT</a>
+            </div>
+        </nav>
+
+<!-- ============ TOOLKIT ============ -->
+<section id="toolkit" class="py-32 relative px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+        <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+            <span class="text-xs font-bold tracking-widest text-fuchsia-400 uppercase">SYSTEM STACK / 03</span>
+            <h2 class="text-3xl sm:text-5xl font-black text-white tracking-tight">AI TOOLKIT & SKILLS</h2>
+            <p class="text-gray-400 text-sm sm:text-base">Modern AI platforms, models, and supporting operational methodologies.</p>
+            <div class="w-24 h-1 bg-gradient-to-r from-fuchsia-500 to-blue-600 mx-auto rounded-full"></div>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+            <div class="glass-panel rounded-2xl p-6 text-center space-y-3 hover:border-fuchsia-400/50 transition-all group">
+                <div class="w-12 h-12 mx-auto rounded-xl bg-purple-900/40 flex items-center justify-center text-fuchsia-400 text-2xl group-hover:scale-110 transition-transform"><i class="fa-solid fa-robot"></i></div>
+                <h4 class="font-bold text-white text-sm">ChatGPT / OpenAI</h4>
+                <p class="text-[11px] text-gray-400">Advanced Prompting & Reasoning</p>
+            </div>
+            <div class="glass-panel rounded-2xl p-6 text-center space-y-3 hover:border-blue-400/50 transition-all group">
+                <div class="w-12 h-12 mx-auto rounded-xl bg-blue-900/40 flex items-center justify-center text-blue-400 text-2xl group-hover:scale-110 transition-transform"><i class="fa-solid fa-code"></i></div>
+                <h4 class="font-bold text-white text-sm">Microsoft Copilot</h4>
+                <p class="text-[11px] text-gray-400">Workflow & Code Assistance</p>
+            </div>
+            <div class="glass-panel rounded-2xl p-6 text-center space-y-3 hover:border-fuchsia-400/50 transition-all group">
+                <div class="w-12 h-12 mx-auto rounded-xl bg-fuchsia-900/40 flex items-center justify-center text-fuchsia-300 text-2xl group-hover:scale-110 transition-transform"><i class="fa-solid fa-bolt"></i></div>
+                <h4 class="font-bold text-white text-sm">Grok AI</h4>
+                <p class="text-[11px] text-gray-400">Real-time Information Analysis</p>
+            </div>
+            <div class="glass-panel rounded-2xl p-6 text-center space-y-3 hover:border-cyan-400/50 transition-all group">
+                <div class="w-12 h-12 mx-auto rounded-xl bg-cyan-900/40 flex items-center justify-center text-cyan-400 text-2xl group-hover:scale-110 transition-transform"><i class="fa-solid fa-network-wired"></i></div>
+                <h4 class="font-bold text-white text-sm">Meta AI</h4>
+                <p class="text-[11px] text-gray-400">Llama Model Ecosystems</p>
+            </div>
+            <div class="glass-panel rounded-2xl p-6 text-center space-y-3 hover:border-purple-400/50 transition-all group col-span-2 sm:col-span-1">
+                <div class="w-12 h-12 mx-auto rounded-xl bg-purple-900/40 flex items-center justify-center text-purple-300 text-2xl group-hover:scale-110 transition-transform"><i class="fa-solid fa-terminal"></i></div>
+                <h4 class="font-bold text-white text-sm">Prompt Engineering</h4>
+                <p class="text-[11px] text-gray-400">Supporting Operational Skill</p>
+            </div>
+        </div>
+
+        <div class="mt-12 glass-panel rounded-3xl p-8 space-y-6">
+            <h3 class="text-sm font-extrabold tracking-widest text-fuchsia-300 uppercase text-center sm:text-left">TRANSFERABLE PROFESSIONAL CAPABILITIES</h3>
+            <div class="flex flex-wrap gap-3">
+                <span class="px-4 py-2 rounded-xl text-xs font-semibold bg-purple-950/60 text-purple-200 border border-purple-500/30 flex items-center gap-2"><i class="fa-solid fa-check text-fuchsia-400"></i> Problem Solving</span>
+                <span class="px-4 py-2 rounded-xl text-xs font-semibold bg-purple-950/60 text-purple-200 border border-purple-500/30 flex items-center gap-2"><i class="fa-solid fa-check text-fuchsia-400"></i> Public Communication</span>
+                <span class="px-4 py-2 rounded-xl text-xs font-semibold bg-purple-950/60 text-purple-200 border border-purple-500/30 flex items-center gap-2"><i class="fa-solid fa-check text-fuchsia-400"></i> Presentation Skills</span>
+                <span class="px-4 py-2 rounded-xl text-xs font-semibold bg-purple-950/60 text-purple-200 border border-purple-500/30 flex items-center gap-2"><i class="fa-solid fa-check text-fuchsia-400"></i> Market Research & Analysis</span>
+                <span class="px-4 py-2 rounded-xl text-xs font-semibold bg-purple-950/60 text-purple-200 border border-purple-500/30 flex items-center gap-2"><i class="fa-solid fa-check text-fuchsia-400"></i> Idea Generation</span>
+                <span class="px-4 py-2 rounded-xl text-xs font-semibold bg-purple-950/60 text-purple-200 border border-purple-500/30 flex items-center gap-2"><i class="fa-solid fa-check text-fuchsia-400"></i> Professional Networking</span>
+                <span class="px-4 py-2 rounded-xl text-xs font-semibold bg-purple-950/60 text-purple-200 border border-purple-500/30 flex items-center gap-2"><i class="fa-solid fa-check text-fuchsia-400"></i> Negotiation & Client Relations</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <!-- ============ FOOTER (shared) ============ -->
+        <footer class="py-12 border-t border-white/10 text-center space-y-4 px-4">
+            <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div class="text-left">
+                    <h4 class="font-bold text-white text-sm">SUSMITA KIRTTONIA</h4>
+                    <p class="text-[11px] text-fuchsia-400">AI ENGINEER</p>
+                </div>
+                <p class="text-xs text-gray-500">"BUILDING INTELLIGENCE. EXPLORING WHAT'S NEXT."</p>
+                <div class="text-xs text-gray-500">&copy; <span id="year"></span> All Rights Reserved.</div>
+            </div>
+        </footer>
+    </div>
+
+    </div>
+
+    <!-- Floating Chatbot -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <button id="chatbot-toggle-btn" onclick="toggleChatbot()" class="w-14 h-14 rounded-full bg-gradient-to-tr from-fuchsia-600 via-purple-600 to-blue-600 p-0.5 shadow-[0_0_25px_rgba(217,70,239,0.6)] hover:scale-105 transition-all duration-300 group flex items-center justify-center relative">
+            <span class="absolute -top-1 -right-1 w-3.5 h-3.5 rounded-full bg-emerald-400 border-2 border-brand-dark animate-pulse"></span>
+            <div class="w-full h-full rounded-full bg-brand-dark flex items-center justify-center group-hover:bg-transparent transition-colors">
+                <i class="fa-solid fa-sparkles text-fuchsia-400 text-xl group-hover:text-white"></i>
+            </div>
+        </button>
+        <div id="chatbot-modal" class="hidden fixed bottom-24 right-4 sm:right-6 w-[calc(100vw-2rem)] sm:w-96 glass-panel rounded-3xl shadow-2xl border border-fuchsia-500/40 flex flex-col overflow-hidden max-h-[500px] z-50">
+            <div class="p-4 bg-gradient-to-r from-purple-950 via-fuchsia-950 to-brand-dark border-b border-white/10 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-full bg-fuchsia-500/20 border border-fuchsia-400 flex items-center justify-center text-fuchsia-300 text-xs font-bold">AI</div>
+                    <div>
+                        <h4 class="text-xs font-extrabold text-white">ASK SUSMITA AI</h4>
+                        <span class="text-[9px] text-emerald-400 flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Verified Portfolio Engine</span>
+                    </div>
+                </div>
+                <button onclick="toggleChatbot()" class="text-gray-400 hover:text-white p-1"><i class="fa-solid fa-xmark text-sm"></i></button>
+            </div>
+            <div id="chat-messages" class="p-4 overflow-y-auto flex-1 space-y-3 text-xs">
+                <div class="bg-purple-950/60 p-3 rounded-2xl border border-purple-500/20 text-gray-200">
+                    Hi! I'm Susmita's personal AI assistant. What would you like to know about her AI Engineering focus?
+                </div>
+            </div>
+            <div class="p-2 border-t border-white/5 bg-black/40 flex flex-wrap gap-1.5">
+                <button onclick="askQuestion('Who is Susmita?')" class="text-[10px] px-2.5 py-1 rounded-full bg-purple-900/40 hover:bg-fuchsia-600/40 text-fuchsia-200 border border-fuchsia-500/20 transition">Who is Susmita?</button>
+                <button onclick="askQuestion('What are her AI skills?')" class="text-[10px] px-2.5 py-1 rounded-full bg-purple-900/40 hover:bg-fuchsia-600/40 text-fuchsia-200 border border-fuchsia-500/20 transition">AI Skills?</button>
+                <button onclick="askQuestion('What AI tools does she use?')" class="text-[10px] px-2.5 py-1 rounded-full bg-purple-900/40 hover:bg-fuchsia-600/40 text-fuchsia-200 border border-fuchsia-500/20 transition">AI Tools?</button>
+            </div>
+            <form onsubmit="handleChatSubmit(event)" class="p-3 bg-brand-dark/90 border-t border-white/10 flex gap-2">
+                <input id="chat-input" type="text" placeholder="Ask a question..." class="flex-1 px-3 py-2 rounded-xl bg-purple-950/40 border border-white/10 text-xs text-white focus:outline-none focus:border-fuchsia-500">
+                <button type="submit" class="px-3 py-2 rounded-xl bg-fuchsia-600 hover:bg-fuchsia-500 text-white text-xs font-bold transition"><i class="fa-solid fa-paper-plane"></i></button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Case Study Modal -->
+    <div id="case-study-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
+        <div class="glass-panel rounded-3xl p-6 sm:p-8 max-w-lg w-full space-y-4 border border-fuchsia-500/40 relative">
+            <button onclick="closeCaseStudy()" class="absolute top-4 right-4 text-gray-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+            <span class="text-[10px] font-mono text-fuchsia-400 uppercase tracking-widest">CASE STUDY ARCHITECTURE</span>
+            <h3 id="modal-title" class="text-xl font-bold text-white"></h3>
+            <p id="modal-desc" class="text-xs text-gray-300 leading-relaxed"></p>
+            <div class="pt-4 border-t border-white/10 flex justify-end">
+                <button onclick="closeCaseStudy()" class="px-4 py-2 rounded-xl bg-fuchsia-600 text-white text-xs font-bold">CLOSE</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/shared.js"></script>
+</body>
+</html>
